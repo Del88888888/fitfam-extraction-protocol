@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FitFam Extraction Protocol</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 30px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0b0b;
+      color: #f5f5f5;
+      text-align: center;
+      font-size: 42px;
+    }
+
+    h1 { font-size: 64px; color: #ffd200; }
+    h2 { font-size: 52px; color: #ffd200; }
+
+    .panel {
+      border: 3px solid #444;
+      padding: 30px;
+      margin: 30px auto;
+      max-width: 900px;
+      background: #111;
+    }
+
+    button {
+      font-size: 42px;
+      padding: 20px 40px;
+      margin-top: 20px;
+      background: #ffd200;
+      color: #000;
+      border: none;
+      cursor: pointer;
+    }
+
+    input {
+      font-size: 42px;
+      padding: 20px;
+      width: 80%;
+      max-width: 500px;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .hidden { display: none; }
+
+    .warning { color: #ff5252; font-weight: bold; }
+  </style>
+</head>
+
+<body>
+
+<h1>🕵️ FITFAM EXTRACTION PROTOCOL</h1>
+
+<!-- MISSION BRIEF -->
+<div id="briefing" class="panel">
+  <h2>MISSION BRIEFING</h2>
+  <p>Agent, your cover has been blown.</p>
+  <p>You are operating behind enemy lines.</p>
+  <p>Complete assignments to unlock access codes for extraction.</p>
+  <p>Failure to escape results in capture and penalty.</p>
+  <button onclick="startMission()">BEGIN MISSION</button>
+</div>
+
+<!-- QUESTION GATE -->
+<div id="questionGate" class="panel hidden">
+  <h2>IDENTITY VERIFICATION</h2>
+  <p><strong>Best workout group?</strong></p>
+  <input id="answerInput" placeholder="Enter response">
+  <br>
+  <button onclick="checkAnswer()">VERIFY IDENTITY</button>
+</div>
+
+<!-- START LAP -->
+<div id="startLap" class="panel hidden">
+  <h2>IDENTITY VERIFIED ✅</h2>
+  <p>Evade pursuit immediately.</p>
+  <p><strong>Run 1 full lap around the park.</strong></p>
+  <p>Report back to HQ for access code.</p>
+</div>
+
+<!-- STAGE 1 -->
+<div id="stage1Pin" class="panel hidden">
+  <h2>MISSION ALPHA</h2>
+  <input id="stage1PinInput" placeholder="Access Code">
+  <br>
+  <button onclick="unlockStage1()">AUTHORISE</button>
+</div>
+
+<div id="stage1" class="panel hidden">
+  <h2>MISSION ALPHA – ASSIGNMENT</h2>
+  <p id="stage1Exercise"></p>
+</div>
+
+<!-- STAGE 2 -->
+<div id="stage2Pin" class="panel hidden">
+  <h2>MISSION BRAVO</h2>
+  <input id="stage2PinInput" placeholder="Access Code">
+  <br>
+  <button onclick="unlockStage2()">AUTHORISE</button>
+</div>
+
+<div id="stage2" class="panel hidden">
+  <h2>MISSION BRAVO – ASSIGNMENT</h2>
+  <p id="stage2Exercise"></p>
+</div>
+
+<!-- STAGE 3 -->
+<div id="stage3Pin" class="panel hidden">
+  <h2>MISSION CHARLIE</h2>
+  <input id="stage3PinInput" placeholder="Access Code">
+  <br>
+  <button onclick="unlockStage3()">AUTHORISE</button>
+</div>
+
+<div id="stage3" class="panel hidden">
+  <h2>MISSION CHARLIE – ASSIGNMENT</h2>
+  <p id="stage3Exercise"></p>
+</div>
+
+<!-- FINAL -->
+<div id="stage4Pin" class="panel hidden">
+  <h2>FINAL CLEARANCE</h2>
+  <input id="stage4PinInput" placeholder="Access Code">
+  <br>
+  <button onclick="unlockStage4()">AUTHORISE EXTRACTION</button>
+</div>
+
+<div id="finalStage" class="panel hidden">
+  <h2>🏁 FINAL EXTRACTION</h2>
+  <p><strong>Run 1 final lap around the park.</strong></p>
+  <p class="warning">Last team captured – 10 burpee penalty.</p>
+</div>
+
+<!-- SOUND EFFECTS -->
+https://actions.google.com/sounds/v1/ui/beep_short.ogg</audio>
+https://actions.google.com/sounds/v1/alarms/beep_short.ogg</audio>
+
+<script>
+  const exercises = [
+    "PARTNER BURPEE HIGH‑FIVE × 15 EACH",
+    "PARTNER PUSH‑UP HIGH‑FIVE × 25–30 EACH",
+    "PIGGYBACK CARRY TO MARKER, SWAP & RETURN (ODD AGENT BEAR CRAWLS)"
+  ];
+  let remaining = [...exercises];
+
+  function nextExercise() {
+    const i = Math.floor(Math.random() * remaining.length);
+    return remaining.splice(i, 1)[0];
+  }
+
+  function startMission() {
+    document.getElementById("beep").play();
+    briefing.classList.add("hidden");
+    questionGate.classList.remove("hidden");
+  }
+
+  function checkAnswer() {
+    if (answerInput.value.trim().toLowerCase() === "fitfam") {
+      beep.play();
+      questionGate.classList.add("hidden");
+      startLap.classList.remove("hidden");
+      stage1Pin.classList.remove("hidden");
+    } else {
+      deny.play();
+      alert("ACCESS DENIED");
+    }
+  }
+
+  function unlockStage1() {
+    if (stage1PinInput.value === "1357") {
+      beep.play();
+      stage1Pin.classList.add("hidden");
+      stage1.classList.remove("hidden");
+      stage1Exercise.innerText = nextExercise();
+      stage2Pin.classList.remove("hidden");
+    } else deny.play();
+  }
+
+  function unlockStage2() {
+    if (stage2PinInput.value === "2468") {
+      beep.play();
+      stage2Pin.classList.add("hidden");
+      stage2.classList.remove("hidden");
+      stage2Exercise.innerText = nextExercise();
+      stage3Pin.classList.remove("hidden");
+    } else deny.play();
+  }
+
+  function unlockStage3() {
+    if (stage3PinInput.value === "3824") {
+      beep.play();
+      stage3Pin.classList.add("hidden");
+      stage3.classList.remove("hidden");
+      stage3Exercise.innerText = nextExercise();
+      stage4Pin.classList.remove("hidden");
+    } else deny.play();
+  }
+
+  function unlockStage4() {
+    if (stage4PinInput.value === "4832") {
+      beep.play();
+      stage4Pin.classList.add("hidden");
+      finalStage.classList.remove("hidden");
+    } else deny.play();
+  }
+</script>
+
+</body>
+</html>
