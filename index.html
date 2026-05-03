@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>FitFam Extraction Protocol</title>
+<!DOCTYPE html><!DOCTYPE html>FitFam Extraction Protocol</title>
 
   <style>
     body {
@@ -45,7 +42,6 @@
     }
 
     .hidden { display: none; }
-
     .warning { color: #ff5252; font-weight: bold; }
   </style>
 </head>
@@ -53,10 +49,6 @@
 <body>
 
 <h1>🕵️ FITFAM EXTRACTION PROTOCOL</h1>
-
-<!-- SOUND EFFECTS -->
-https://actions.google.com/sounds/v1/ui/beep_short.ogg</audio>
-https://actions.google.com/sounds/v1/alarms/beep_short.ogg</audio>
 
 <!-- MISSION BRIEF -->
 <div id="briefing" class="panel">
@@ -146,66 +138,61 @@ https://actions.google.com/sounds/v1/alarms/beep_short.ogg</audio>
   let remaining = [...exercises];
 
   function nextExercise() {
-    const i = Math.floor(Math.random() * remaining.length);
-    return remaining.splice(i, 1)[0];
+    const index = Math.floor(Math.random() * remaining.length);
+    return remaining.splice(index, 1)[0];
   }
 
   function startMission() {
-    document.getElementById("beep").play();
     document.getElementById("briefing").classList.add("hidden");
     document.getElementById("questionGate").classList.remove("hidden");
   }
 
   function checkAnswer() {
     if (document.getElementById("answerInput").value.trim().toLowerCase() === "fitfam") {
-      document.getElementById("beep").play();
       document.getElementById("questionGate").classList.add("hidden");
       document.getElementById("startLap").classList.remove("hidden");
       document.getElementById("stage1Pin").classList.remove("hidden");
     } else {
-      document.getElementById("deny").play();
       alert("ACCESS DENIED");
     }
   }
 
   function unlockStage1() {
     if (document.getElementById("stage1PinInput").value === "1313") {
-      document.getElementById("beep").play();
-      stage1Pin.classList.add("hidden");
-      stage1.classList.remove("hidden");
-      stage1Exercise.innerText = nextExercise();
-      stage2Pin.classList.remove("hidden");
-    } else deny.play();
+      document.getElementById("stage1Pin").classList.add("hidden");
+      document.getElementById("stage1").classList.remove("hidden");
+      document.getElementById("stage1Exercise").innerText = nextExercise();
+      document.getElementById("stage2Pin").classList.remove("hidden");
+    } else alert("ACCESS DENIED");
   }
 
   function unlockStage2() {
     if (document.getElementById("stage2PinInput").value === "2288") {
-      beep.play();
-      stage2Pin.classList.add("hidden");
-      stage2.classList.remove("hidden");
-      stage2Exercise.innerText = nextExercise();
-      stage3Pin.classList.remove("hidden");
-    } else deny.play();
+      document.getElementById("stage2Pin").classList.add("hidden");
+      document.getElementById("stage2").classList.remove("hidden");
+      document.getElementById("stage2Exercise").innerText = nextExercise();
+      document.getElementById("stage3Pin").classList.remove("hidden");
+    } else alert("ACCESS DENIED");
   }
 
   function unlockStage3() {
     if (document.getElementById("stage3PinInput").value === "3898") {
-      beep.play();
-      stage3Pin.classList.add("hidden");
-      stage3.classList.remove("hidden");
-      stage3Exercise.innerText = nextExercise();
-      stage4Pin.classList.remove("hidden");
-    } else deny.play();
+      document.getElementById("stage3Pin").classList.add("hidden");
+      document.getElementById("stage3").classList.remove("hidden");
+      document.getElementById("stage3Exercise").innerText = nextExercise();
+      document.getElementById("stage4Pin").classList.remove("hidden");
+    } else alert("ACCESS DENIED");
   }
 
   function unlockStage4() {
     if (document.getElementById("stage4PinInput").value === "4680") {
-      beep.play();
-      stage4Pin.classList.add("hidden");
-      finalStage.classList.remove("hidden");
-    } else deny.play();
+      document.getElementById("stage4Pin").classList.add("hidden");
+      document.getElementById("finalStage").classList.remove("hidden");
+    } else alert("ACCESS DENIED");
   }
 </script>
 
 </body>
 </html>
+<html>
+<head>
