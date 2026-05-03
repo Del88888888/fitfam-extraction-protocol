@@ -1,4 +1,7 @@
-<!DOCTYPE html><!DOCTYPE html>FitFam Extraction Protocol</title>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FitFam Extraction Protocol</title>
 
   <style>
     body {
@@ -42,7 +45,6 @@
     }
 
     .hidden { display: none; }
-    .warning { color: #ff5252; font-weight: bold; }
   </style>
 </head>
 
@@ -56,7 +58,7 @@
   <p>Agent, your cover has been blown.</p>
   <p>You are operating behind enemy lines.</p>
   <p>Complete assignments to unlock access codes for extraction.</p>
-  <p>Failure to escape results in capture and penalty.</p>
+  <p>Failure to escape results in capture and <strong>torture</strong>.</p>
   <button onclick="startMission()">BEGIN MISSION</button>
 </div>
 
@@ -76,42 +78,42 @@
   <p>Return to HQ for access code.</p>
 </div>
 
-<!-- STAGE 1 -->
+<!-- MISSION 1 -->
 <div id="stage1Pin" class="panel hidden">
-  <h2>MISSION ALPHA</h2>
+  <h2>MISSION 1</h2>
   <input id="stage1PinInput" placeholder="Access Code">
   <br>
   <button onclick="unlockStage1()">AUTHORISE</button>
 </div>
 
 <div id="stage1" class="panel hidden">
-  <h2>MISSION ALPHA – ASSIGNMENT</h2>
+  <h2>MISSION 1 – ASSIGNMENT</h2>
   <p id="stage1Exercise"></p>
 </div>
 
-<!-- STAGE 2 -->
+<!-- MISSION 2 -->
 <div id="stage2Pin" class="panel hidden">
-  <h2>MISSION BRAVO</h2>
+  <h2>MISSION 2</h2>
   <input id="stage2PinInput" placeholder="Access Code">
   <br>
   <button onclick="unlockStage2()">AUTHORISE</button>
 </div>
 
 <div id="stage2" class="panel hidden">
-  <h2>MISSION BRAVO – ASSIGNMENT</h2>
+  <h2>MISSION 2 – ASSIGNMENT</h2>
   <p id="stage2Exercise"></p>
 </div>
 
-<!-- STAGE 3 -->
+<!-- MISSION 3 -->
 <div id="stage3Pin" class="panel hidden">
-  <h2>MISSION CHARLIE</h2>
+  <h2>MISSION 3</h2>
   <input id="stage3PinInput" placeholder="Access Code">
   <br>
   <button onclick="unlockStage3()">AUTHORISE</button>
 </div>
 
 <div id="stage3" class="panel hidden">
-  <h2>MISSION CHARLIE – ASSIGNMENT</h2>
+  <h2>MISSION 3 – ASSIGNMENT</h2>
   <p id="stage3Exercise"></p>
 </div>
 
@@ -126,14 +128,13 @@
 <div id="finalStage" class="panel hidden">
   <h2>🏁 FINAL EXTRACTION</h2>
   <p><strong>Run 1 final lap around the park.</strong></p>
-  <p class="warning">Last team captured – 10 burpee penalty.</p>
 </div>
 
 <script>
   const exercises = [
-    "PARTNER BURPEE HIGH‑FIVE × 15 EACH",
-    "PARTNER PUSH‑UP HIGH‑FIVE × 25–30 EACH",
-    "PIGGYBACK CARRY TO MARKER, SWAP & RETURN (ODD AGENT BEAR CRAWLS)"
+    "Run to marker. Partner Push‑Up High Five × 30 each. Run back.",
+    "Piggyback to marker. Swap and return. (Odd Agent bear crawls.)",
+    "Run to marker. Partner Burpee High Five × 20 each. Run back."
   ];
   let remaining = [...exercises];
 
@@ -194,5 +195,3 @@
 
 </body>
 </html>
-<html>
-<head>
