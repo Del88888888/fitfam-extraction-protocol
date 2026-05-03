@@ -54,6 +54,10 @@
 
 <h1>🕵️ FITFAM EXTRACTION PROTOCOL</h1>
 
+<!-- SOUND EFFECTS -->
+https://actions.google.com/sounds/v1/ui/beep_short.ogg</audio>
+https://actions.google.com/sounds/v1/alarms/beep_short.ogg</audio>
+
 <!-- MISSION BRIEF -->
 <div id="briefing" class="panel">
   <h2>MISSION BRIEFING</h2>
@@ -64,11 +68,11 @@
   <button onclick="startMission()">BEGIN MISSION</button>
 </div>
 
-<!-- QUESTION GATE -->
+<!-- QUESTION -->
 <div id="questionGate" class="panel hidden">
   <h2>IDENTITY VERIFICATION</h2>
   <p><strong>Best workout group?</strong></p>
-  <input id="answerInput" placeholder="Enter response">
+  <input id="answerInput">
   <br>
   <button onclick="checkAnswer()">VERIFY IDENTITY</button>
 </div>
@@ -76,9 +80,8 @@
 <!-- START LAP -->
 <div id="startLap" class="panel hidden">
   <h2>IDENTITY VERIFIED ✅</h2>
-  <p>Evade pursuit immediately.</p>
   <p><strong>Run 1 full lap around the park.</strong></p>
-  <p>Report back to HQ for access code.</p>
+  <p>Return to HQ for access code.</p>
 </div>
 
 <!-- STAGE 1 -->
@@ -134,10 +137,6 @@
   <p class="warning">Last team captured – 10 burpee penalty.</p>
 </div>
 
-<!-- SOUND EFFECTS -->
-https://actions.google.com/sounds/v1/ui/beep_short.ogg</audio>
-https://actions.google.com/sounds/v1/alarms/beep_short.ogg</audio>
-
 <script>
   const exercises = [
     "PARTNER BURPEE HIGH‑FIVE × 15 EACH",
@@ -153,25 +152,25 @@ https://actions.google.com/sounds/v1/alarms/beep_short.ogg</audio>
 
   function startMission() {
     document.getElementById("beep").play();
-    briefing.classList.add("hidden");
-    questionGate.classList.remove("hidden");
+    document.getElementById("briefing").classList.add("hidden");
+    document.getElementById("questionGate").classList.remove("hidden");
   }
 
   function checkAnswer() {
-    if (answerInput.value.trim().toLowerCase() === "fitfam") {
-      beep.play();
-      questionGate.classList.add("hidden");
-      startLap.classList.remove("hidden");
-      stage1Pin.classList.remove("hidden");
+    if (document.getElementById("answerInput").value.trim().toLowerCase() === "fitfam") {
+      document.getElementById("beep").play();
+      document.getElementById("questionGate").classList.add("hidden");
+      document.getElementById("startLap").classList.remove("hidden");
+      document.getElementById("stage1Pin").classList.remove("hidden");
     } else {
-      deny.play();
+      document.getElementById("deny").play();
       alert("ACCESS DENIED");
     }
   }
 
   function unlockStage1() {
-    if (stage1PinInput.value === "1357") {
-      beep.play();
+    if (document.getElementById("stage1PinInput").value === "1313") {
+      document.getElementById("beep").play();
       stage1Pin.classList.add("hidden");
       stage1.classList.remove("hidden");
       stage1Exercise.innerText = nextExercise();
@@ -180,7 +179,7 @@ https://actions.google.com/sounds/v1/alarms/beep_short.ogg</audio>
   }
 
   function unlockStage2() {
-    if (stage2PinInput.value === "2468") {
+    if (document.getElementById("stage2PinInput").value === "2288") {
       beep.play();
       stage2Pin.classList.add("hidden");
       stage2.classList.remove("hidden");
@@ -190,7 +189,7 @@ https://actions.google.com/sounds/v1/alarms/beep_short.ogg</audio>
   }
 
   function unlockStage3() {
-    if (stage3PinInput.value === "3824") {
+    if (document.getElementById("stage3PinInput").value === "3898") {
       beep.play();
       stage3Pin.classList.add("hidden");
       stage3.classList.remove("hidden");
@@ -200,7 +199,7 @@ https://actions.google.com/sounds/v1/alarms/beep_short.ogg</audio>
   }
 
   function unlockStage4() {
-    if (stage4PinInput.value === "4832") {
+    if (document.getElementById("stage4PinInput").value === "4680") {
       beep.play();
       stage4Pin.classList.add("hidden");
       finalStage.classList.remove("hidden");
