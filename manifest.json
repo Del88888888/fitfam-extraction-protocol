@@ -1,0 +1,15 @@
+{
+  "name": "FitFam Extraction Protocol",
+  "short_name": "FitFam",
+  "start_url": "/fitfam-extraction-protocol/",
+  "display": "standalone",
+  "background_color": "#F4B400",
+  "theme_color": "#F4B400",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
